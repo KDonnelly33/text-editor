@@ -24,8 +24,8 @@ module.exports = () => {
       }),
       // added inject manifest to generate service worker
       new InjectManifest({
-        swSrc: path.resolve(__dirname, 'src-sw.js'),
-        swDest: 'service-worker.js',
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
       // added webpack pwa manifest to generate manifest.json
       new WebpackPwaManifest({
