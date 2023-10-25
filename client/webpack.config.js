@@ -20,7 +20,7 @@ module.exports = () => {
     plugins: [
       // added html webpack plugin
       new HtmlWebpackPlugin({
-        template: '.index.html',
+        template: './index.html',
         title: 'Text Editor',
       }),
       // added inject manifest to generate service worker
@@ -40,7 +40,7 @@ module.exports = () => {
         start_url: '/',
         icons: [
           {
-            src: path.resolve('assets/icon-512x512.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
