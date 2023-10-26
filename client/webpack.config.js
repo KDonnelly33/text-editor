@@ -29,18 +29,22 @@ module.exports = () => {
       }),
       // added webpack pwa manifest to generate manifest.json
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'Text Editor PWA App',
         short_name: 'Text-Editor',
         description: 'An applicantion that allows you to edit text files online or offline',
         background_color: '#ffffff',
         theme_color: '#ffffff',
-        start_url: '/',
+        start_url: './',
         publicPath: './',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
+        
+       
           },
         ],
       }),
@@ -65,8 +69,11 @@ module.exports = () => {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: {presets: ['@babel/preset-env'] ,},
-          },
+            options: {
+              presets: ['@babel/preset-env'] ,
+              plugins: ['@babel/plugin-transform-object-rest-spread', '@babel/transform-runtime'],
+            },
+            },
         },
       ],
     },
